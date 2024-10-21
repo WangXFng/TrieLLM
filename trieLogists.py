@@ -31,7 +31,9 @@ class TrieLogitsProcessor(LogitsProcessor):
     def __init__(self, trie, tokenizer, num_beams, last_token=':'):
         self.trie = trie
         self.num_beams = num_beams
-        self.last_token = tokenizer(last_token)['input_ids'][1:][0]
+        # [1:] is because LlaMa3.2-1B will add the ID of token '<s>' before the generated sentences. Revise if necessary
+        # self.last_token = tokenizer(last_token)['input_ids'][1:][0]
+        self.last_token = tokenizer(last_token)['input_ids'][0]
         self.eos_token_id = tokenizer.eos_token_id
 
     def __call__(self, input_ids, scores):

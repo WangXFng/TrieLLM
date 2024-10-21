@@ -17,7 +17,8 @@ def encode_sequences(sequences, tokenizer: PreTrainedTokenizer):
     encoded_sequences = []
     for sequence in sequences:
         token_ids = tokenizer.encode(sequence)
-        encoded_sequences.append(token_ids[1:])
+        # encoded_sequences.append(token_ids[1:])
+        encoded_sequences.append(token_ids)
     return encoded_sequences
 
 
@@ -25,7 +26,8 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='TrieLLM')
     args = parser.parse_args()
-    args.base_model = "meta-llama/Llama-3.2-1B-Instruct"
+    # args.base_model = "meta-llama/Llama-3.2-1B-Instruct"
+    args.base_model = "Qwen/Qwen2.5-1.5B"
 
     # Loading Model and Tokenizer
     model = AutoModelForCausalLM.from_pretrained(args.base_model)
