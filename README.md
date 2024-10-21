@@ -21,12 +21,7 @@ the first four choices are fixed and sequential ('<' → 'a' → '_' → '1'), w
 
     >> pip install -r requirements.txt
 
-
-#### (2) Apply for a granted access at [[Hugging Face]](https://huggingface.co/meta-llama/Llama-3.2-1B)
-
-    >> huggingface-cli login --token [YOUR TOKEN]
-
-#### (3) Run generate.py
+#### (2) Run generate.py
 
     >> python generate.py
 
